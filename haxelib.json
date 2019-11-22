@@ -4,7 +4,7 @@
   "license": "MIT",
   "tags": ["php", "ldap"],
   "description": "LDAP wrapper for php target.",
-  "version": "1.0.0-alpha",
-  "releasenote": "Initial release, basic functionality (bind, search, get_entries)",
-  "contributors": ["byFd"]
+  "version": "2.0.0",
+  "releasenote": "haxe 4.0.1 compatible. With new php syntax. Thanks to @gamahachaa",
+  "contributors": ["byFd", "gamahachaa"]
 }
