@@ -50,7 +50,6 @@ class LDAP
 
 	public function bind(?user : String, ?password : String) : Bool
 	{
-		//@ call sucks but i don't know how to do it otherwise yet
 		var success = false;
 		try{
 			if (user == null || password == null)
@@ -205,4 +204,24 @@ class LDAP
 		return Syntax.code("ldap_unbind({0})", connection);
 	}
 
+	public function add(dn : String, entry : NativeArray, ?serverctrls : nativeArray)
+	{
+		if (serverctrls == null) {
+			serverctrls = new NativeArray();
+		}
+		return Syntax.code("ldap_add({0}, {1}, {2}, {3})", connection, dn, entry, serverctrls);
+	}
+
+	public function compare(dn : String, attribute : String, value : String, ?serverctrls : nativeArray)
+	{
+		if (serverctrls == null) {
+			serverctrls = new NativeArray();
+		}
+		return Syntax.code("ldap_compare({0}, {1}, {2}, {3}, {4})", connection, dn, attribute, serverctrls);
+	}
+
+	public function count_entries(result : Dynamic)
+	{
+		return Syntax.code("ldap_count_entries({0}, {1})", connection, result);
+	}
 }
