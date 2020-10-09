@@ -242,4 +242,14 @@ class LDAP
 	{
 		return Syntax.code("ldap_dn2ufn({0})", dn);
 	}
+
+	public function get_dn(result_entry_identifier : Dynamic)
+	{
+		return Syntax.Code("ldap_get_dn({0}, {1})", connection, result_entry_identifier);
+	}
+
+	public function explode_dn(dn : String, with_attrib : Int)
+	{
+		return Syntax.Code("ldap_explode_dn({0}, {1})", dn, with_attrib);
+	}
 }
