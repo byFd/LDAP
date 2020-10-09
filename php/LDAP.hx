@@ -204,7 +204,7 @@ class LDAP
 		return Syntax.code("ldap_unbind({0})", connection);
 	}
 
-	public function add(dn : String, entry : NativeArray, ?serverctrls : nativeArray)
+	public function add(dn : String, entry : NativeArray, ?serverctrls : NativeArray)
 	{
 		if (serverctrls == null) {
 			serverctrls = new NativeArray();
@@ -212,7 +212,7 @@ class LDAP
 		return Syntax.code("ldap_add({0}, {1}, {2}, {3})", connection, dn, entry, serverctrls);
 	}
 
-	public function compare(dn : String, attribute : String, value : String, ?serverctrls : nativeArray)
+	public function compare(dn : String, attribute : String, value : String, ?serverctrls : NativeArray)
 	{
 		if (serverctrls == null) {
 			serverctrls = new NativeArray();
@@ -223,5 +223,19 @@ class LDAP
 	public function count_entries(result : Dynamic)
 	{
 		return Syntax.code("ldap_count_entries({0}, {1})", connection, result);
+	}
+
+	public function delete(dn : String, ?serverctrls : NativeArray)
+	{
+		if (serverctrls == null) {
+			serverctrls = new NativeArray();
+		}
+		return Syntax.code("ldap_delete({0}, {1}, {2})", connection, dn, serverctrls);
+	}
+
+	// ldap_escape ( string $value [, string $ignore = "" [, int $flags = 0 ]] ) : string
+	public function escape(value : String, ignore : String = "", flags : Int = 0)
+	{
+		return Syntax.code("ldap_escape({0}, {1}, {2})", value, ignore, flags);
 	}
 }
