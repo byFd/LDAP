@@ -219,4 +219,9 @@ class LDAP
 		}
 		return Syntax.code("ldap_compare({0}, {1}, {2}, {3}, {4})", connection, dn, attribute, serverctrls);
 	}
+
+	public function count_entries(result : Dynamic)
+	{
+		return Syntax.code("ldap_count_entries({0}, {1})", connection, result);
+	}
 }
