@@ -211,4 +211,12 @@ class LDAP
 		}
 		return Syntax.code("ldap_add({0}, {1}, {2}, {3})", connection, dn, entry, serverctrls);
 	}
+
+	public function compare(dn : String, attribute : String, value : String, ?serverctrls : nativeArray)
+	{
+		if (serverctrls == null) {
+			serverctrls = new NativeArray();
+		}
+		return Syntax.code("ldap_compare({0}, {1}, {2}, {3}, {4})", connection, dn, attribute, serverctrls);
+	}
 }
