@@ -233,9 +233,13 @@ class LDAP
 		return Syntax.code("ldap_delete({0}, {1}, {2})", connection, dn, serverctrls);
 	}
 
-	// ldap_escape ( string $value [, string $ignore = "" [, int $flags = 0 ]] ) : string
 	public function escape(value : String, ignore : String = "", flags : Int = 0)
 	{
 		return Syntax.code("ldap_escape({0}, {1}, {2})", value, ignore, flags);
+	}
+
+	public function dn2ufn(dn : String)
+	{
+		return Syntax.code("ldap_dn2ufn({0})", dn);
 	}
 }
