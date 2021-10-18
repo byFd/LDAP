@@ -241,6 +241,11 @@ class LDAP
 		return Syntax.code("ldap_count_entries({0}, {1})", connection, result);
 	}
 
+	public function count_references(result : Dynamic)
+	{
+		return Syntax.code("ldap_count_references({0}, {1})", connection, result);
+	}
+
 	public function delete(dn : String, ?serverctrls : NativeArray)
 	{
 		if (serverctrls == null) {
