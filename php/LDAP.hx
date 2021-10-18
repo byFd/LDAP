@@ -254,6 +254,14 @@ class LDAP
 		return Syntax.code("ldap_delete({0}, {1}, {2})", connection, dn, serverctrls);
 	}
 
+	public function delete_ext(dn : String, ?serverctrls : NativeArray)
+	{
+		if (serverctrls == null) {
+			serverctrls = new NativeArray();
+		}
+		return Syntax.code("ldap_delete_ext({0}, {1}, {2})", connection, dn, serverctrls);
+	}
+
 	public function escape(value : String, ignore : String = "", flags : Int = 0)
 	{
 		return Syntax.code("ldap_escape({0}, {1}, {2})", value, ignore, flags);
