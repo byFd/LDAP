@@ -73,6 +73,14 @@ class LDAP
 		return Syntax.strictEqual(success, true);
 	}
 
+	public function bind_ext(user : String, password : String, ?controls : NativeArray) : Bool
+	{
+		if (controls == null) {
+			controls = new NativeArray();
+		}
+		return Syntax.code("ldap_bind_ext({0}, {1}, {2}, {3})", connection, user, password, controls);
+	}
+
 	public function convert_8859_to_t61(value : String)
 	{
 		return Syntax.code("ldap_8859_to_61({0})", value);
