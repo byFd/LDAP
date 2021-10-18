@@ -212,6 +212,14 @@ class LDAP
 		return Syntax.code("ldap_add({0}, {1}, {2}, {3})", connection, dn, entry, serverctrls);
 	}
 
+	public function add_ext(dn : String, entry : NativeArray, ?serverctrls : NativeArray)
+	{
+		if (serverctrls == null) {
+			serverctrls = new NativeArray();
+		}
+		return Syntax.code("ldap_add({0}, {1}, {2}, {3})", connection, dn, entry, serverctrls);
+	}
+
 	public function compare(dn : String, attribute : String, value : String, ?serverctrls : NativeArray)
 	{
 		if (serverctrls == null) {
